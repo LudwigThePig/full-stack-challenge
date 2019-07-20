@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import CompanyType from '../types/company';
-import Company from './indexComponents/Company';
+import Company from './homeComponents/Company';
 import Navbar from '../templates/Navbar';
 
-class CompanyContainer extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -28,8 +28,8 @@ class CompanyContainer extends Component {
   }
 }
 
-export default CompanyContainer;
+export default Home;
 
-CompanyContainer.propTypes = {
+Home.propTypes = {
   companies: CompanyType.isRequired,
 };
