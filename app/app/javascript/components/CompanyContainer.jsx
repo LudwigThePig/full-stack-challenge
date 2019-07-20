@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CompanyType from '../types/company';
-import Company from './Company';
+import Company from './indexComponents/Company';
 import Navbar from '../templates/Navbar';
 
 class CompanyContainer extends Component {
