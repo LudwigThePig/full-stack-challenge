@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+//= require ./components/templates
+import React from 'react';
+import Navbar from '../templates/Navbar';
 
-class NewCompanyForm extends Component {
+class NewCompanyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,8 +12,9 @@ class NewCompanyForm extends Component {
   render() {
     return (
       <React.Fragment>
+        <Navbar />
         <form>
-          <h2>Add A Company</h2>
+          <h1>Add New Company</h1>
         </form>
       </React.Fragment>
     );
