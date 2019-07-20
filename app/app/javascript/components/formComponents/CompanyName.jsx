@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CompanyName = ({ companyName, handler }) => (
-  <label className="company-name-input" htmlFor="companyName">
+  <label className="company-name-input required" htmlFor="companyName">
   Company Name:
+    <br />
     <input
       type="text"
       name="companyName"
       value={companyName}
       onChange={handler}
+      required
     />
   </label>
 );

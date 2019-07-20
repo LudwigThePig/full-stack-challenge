@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const FoundedDate = ({ date, handler }) => (
   <label className="date-input" htmlFor="date">
   Founded Date:
+    <br />
     <input
       type="date"
       name="date"

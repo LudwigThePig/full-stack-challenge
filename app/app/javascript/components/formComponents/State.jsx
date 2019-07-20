@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const State = ({ state, handler }) => (
-  <label className="state-input" htmlFor="state">
+  <label className="state-input required" htmlFor="state">
   State:
-    <select value={state} onChange={handler} name="state">
+    <br />
+    <select value={state} onChange={handler} name="state" required>
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>

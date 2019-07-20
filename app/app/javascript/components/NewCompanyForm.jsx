@@ -12,7 +12,7 @@ class NewCompanyForm extends React.Component {
       companyName: '',
       city: '',
       state: 'CO',
-      date: '1996-12-25',
+      date: '',
       description: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,10 +42,14 @@ class NewCompanyForm extends React.Component {
         <Navbar />
         <form>
           <h1>Add New Company</h1>
-          <CompanyName companyName={companyName} handler={this.handleInputChange} />
-          <City city={city} handler={this.handleInputChange} />
-          <State state={state} handler={this.handleInputChange} />
-          <FoundedDate date={date} handler={this.handleInputChange} />
+          <div className="row">
+            <CompanyName companyName={companyName} handler={this.handleInputChange} />
+          </div>
+          <div className="row">
+            <City city={city} handler={this.handleInputChange} />
+            <State state={state} handler={this.handleInputChange} />
+            <FoundedDate date={date} handler={this.handleInputChange} />
+          </div>
           <Description description={description} handler={this.handleInputChange} />
 
           <input

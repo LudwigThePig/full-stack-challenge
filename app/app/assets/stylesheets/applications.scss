@@ -42,7 +42,7 @@ a:hover {
   color: $active;
 }
 
-button {
+button, input[type="submit"] {
   background: $secondary;
   border: 0;
   padding: 1rem 2rem;
@@ -60,7 +60,6 @@ button {
   justify-content: space-around;
   align-items: flex-end;
 }
-
 
 
 /*
