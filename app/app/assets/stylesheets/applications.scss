@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap');
+
+
+$primary: #292939;
+$secondary: #fff;
+$active: #ed6767;
+$alt: #793f5c;
+
+/*
+ * __HTML Element Styles__ *
+ */
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 10px;
+  color: $primary
+}
+
+body {
+  margin : 0;
+  background: $primary;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+a {
+  color: $alt;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $active;
+}
+
+button {
+  background: $secondary;
+  border: 0;
+  padding: 1rem 2rem;
+  box-shadow: .5rem .5rem 0px 0px #000;
+}
+
+/*
+ * __Modifiers__ *
+*/
+
+.row {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+
+
+/*
+ * __Template Styles__ *
+*/
+
+#navbar {
+  background: $primary;
+  color: $secondary;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  h1, a { margin: auto 4rem 0 4rem; }
+  
+  a { font-size: 2.5rem; }
+}

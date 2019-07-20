@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import CompanyType from '../types/company';
 import Company from './Company';
+import Navbar from '../templates/Navbar';
 
 class CompanyContainer extends Component {
   constructor(props) {
@@ -17,9 +17,13 @@ class CompanyContainer extends Component {
   render() {
     const { companies } = this.state;
     return (
-      <ul>
-        {companies.map(company => <Company key={company.id} {...company} />)}
-      </ul>
+      <React.Fragment>
+        <Navbar />
+        <ul>
+          {companies.map(company => <Company key={company.id} {...company} />)}
+          <button type="button" onClick={() => window.location = '/companies/new'}>Add Companyy</button>
+        </ul>
+      </React.Fragment>
     );
   }
 }
