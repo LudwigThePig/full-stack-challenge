@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Navbar from '../templates/Navbar';
 import companyType from '../types/company';
 import { formatYMD } from '../helpers/date';
@@ -19,29 +20,53 @@ class CompanyProfile extends Component {
 
   constructor(props) {
     super(props);
-    const {
-      id, founded_date, name, city, state, description,
-    } = this.props.company;
+
+    /*        __Shape of `company` Object__
+    id, founded_date, name, city, state, description  */
+    const { company } = this.props;
 
     this.state = {
-      id,
-      founded_date,
-      name,
-      city,
-      state,
-      description,
+      ...company,
       modal: true,
+      formData: {
+        ...company,
+      },
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSave = this.handleFormSave.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
 
   handleInputChange(e) {
     const { name, value } = e.target;
+    const { formData } = this.state;
+    formData[name] = value;
     this.setState({
-      [name]: value,
+      formData,
     });
+  }
+
+  handleFormSave(e) {
+    e.preventDefault();
+    const { formData } = this.state;
+
+    // `changedFields` filters out all of the unchanged form fields
+    const changedFields = Object.keys(formData)
+      .filter(key => this.state[key] !== formData[key])
+      .reduce((acc, key) => { acc[key] = formData[key]; return acc; }, {});
+
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(changedFields),
+    };
+    return fetch(`/companies/${formData.id}`, options)
+      .then(data => data.text())
+      .then(console.log)
+      .catcch(console.error);
   }
 
   toggleModal() {
@@ -53,7 +78,7 @@ class CompanyProfile extends Component {
 
   render() {
     const {
-      id, founded_date, name, city, state, description, modal,
+      id, founded_date, name, city, state, description, modal, formData,
     } = this.state;
 
     const formatedDate = founded_date !== null ? formatYMD(founded_date) : '';
@@ -62,8 +87,9 @@ class CompanyProfile extends Component {
       <Fragment>
         <Navbar />
         <Modal
-          state={this.state}
-          save={() => {}}
+          form={formData}
+          modal={modal}
+          save={this.handleFormSave}
           exit={this.toggleModal}
           handler={this.handleInputChange}
         />
