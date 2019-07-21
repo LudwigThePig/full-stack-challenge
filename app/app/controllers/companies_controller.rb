@@ -7,6 +7,8 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @founders = Founder.where(company_id: params[:id])
+
   end
 
   def destroy

@@ -1,3 +1,3 @@
 class Founder < ApplicationRecord
-  belongs_to :companies, class_name: "Company"
+  belongs_to :company, optional: true#, class_name: "Company"
 end

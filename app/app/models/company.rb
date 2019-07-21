@@ -1,3 +1,4 @@
 class Company < ApplicationRecord
-  has_many :founder
+  validates_presence_of :name, :city, :state, :description
+  has_many :founders
 end

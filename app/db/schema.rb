@@ -18,19 +18,17 @@ ActiveRecord::Schema.define(version: 2019_07_21_180906) do
     t.string "city"
     t.string "state"
     t.string "description"
-    t.integer "founders_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "founders", force: :cascade do |t|
-    t.string "name"
-    t.integer "company_id"
+    t.string "founder"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "companies_id"
-    t.index ["companies_id"], name: "index_founders_on_companies_id"
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_founders_on_company_id"
   end
 
 end
