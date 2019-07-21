@@ -34,6 +34,13 @@ class CompanyProfile extends Component {
     };
   }
 
+  toggleModal() {
+    const { modal } = this.state;
+    this.setState({
+      modal: !modal,
+    });
+  }
+
   render() {
     const {
       id, founded_date, name, city, state, description, modal,
@@ -44,8 +51,11 @@ class CompanyProfile extends Component {
     return (
       <Fragment>
         <Navbar />
-
-        {modal ? <Modal /> : null}
+        <Modal
+          state={this.state}
+          save={() => {}}
+          exit={this.toggleModal}
+        />
 
         <div className="company-profile">
           <h1>{name}</h1>
