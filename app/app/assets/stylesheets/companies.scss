@@ -6,6 +6,7 @@ $alt: #793f5c;
 ul {
   margin: 0;
   padding: 3rem 4rem;
+  button { float: right; }
 }
 
 li {
@@ -40,8 +41,4 @@ li {
   p {
     font-size: 1.4em;
   }
-}
-
-button {
-  float: right;
 }

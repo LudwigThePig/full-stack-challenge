@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import CompanyType from '../types/company';
-import Company from './Company';
+import Company from './homeComponents/Company';
 import Navbar from '../templates/Navbar';
 
-class CompanyContainer extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -21,15 +21,15 @@ class CompanyContainer extends Component {
         <Navbar />
         <ul>
           {companies.map(company => <Company key={company.id} {...company} />)}
-          <button type="button" onClick={() => window.location = '/companies/new'}>Add Companyy</button>
+          <button type="button" onClick={() => { window.location = '/companies/new'; }}>Add Company</button>
         </ul>
       </React.Fragment>
     );
   }
 }
 
-export default CompanyContainer;
+export default Home;
 
-CompanyContainer.propTypes = {
+Home.propTypes = {
   companies: CompanyType.isRequired,
 };

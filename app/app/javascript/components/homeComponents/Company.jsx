@@ -1,5 +1,5 @@
 import React from 'react';
-import CompanyType from '../types/company';
+import CompanyType from '../../types/company';
 
 const Company = ({
   id, founded_date, name, city, state, description,
