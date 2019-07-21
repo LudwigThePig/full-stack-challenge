@@ -9,21 +9,25 @@ const Founders = ({ founders, id, addFounder }) => {
     <div className="founders-container">
       <h2>Founders</h2>
       <div className="row">
+
         <FounderModal
           modal={modal}
           exit={setModal}
           id={id}
           addFounder={addFounder}
         />
+
         <div className="founders-list row">
           { founders.map(({ founder, title }) => <p>{`${founder} : ${title}`}</p>) }
         </div>
+
         <button
           type="button"
           onClick={() => setModal(!modal)}
         >
           Add Founder
         </button>
+
       </div>
     </div>
   );

@@ -127,15 +127,15 @@ class CompanyProfile extends Component {
             <p>{formatedDate}</p>
             <p className="right-bar">{`${city}, ${state}`}</p>
             <button type="button" onClick={() => { this.setState({ modal: !modal }); }}>
-              Edit
+            Edit
             </button>
             <button type="button" onClick={() => CompanyProfile.deleteProject(id)}>
               Delete
             </button>
           </div>
-
           <hr />
           <p className="description">{description}</p>
+
           <Founders
             founders={founders}
             addFounder={this.addFounder}
