@@ -5,6 +5,17 @@ import companyType from '../types/company';
 import { formatYMD } from '../helpers/date';
 
 class CompanyProfile extends Component {
+  static deleteProject(id) {
+    const options = {
+      method: 'DELETE',
+    };
+
+    return fetch(`/companies/${id}`, options)
+      .then(res => res.text())
+      .then(console.log)
+      .catch(console.error);
+  }
+
   constructor(props) {
     super(props);
     const {
@@ -23,7 +34,7 @@ class CompanyProfile extends Component {
 
   render() {
     const {
-      founded_date, name, city, state, description,
+      id, founded_date, name, city, state, description,
     } = this.state;
 
     const formatedDate = founded_date !== null ? formatYMD(founded_date) : '';
@@ -33,12 +44,20 @@ class CompanyProfile extends Component {
         <Navbar />
         <div className="company-profile">
           <h1>{name}</h1>
+
           <div className="row">
             <p>{formatedDate}</p>
             <p>{`${city}, ${state}`}</p>
-            <button type="button">Edit</button>
-            <button type="button">Delete</button>
+            <button type="button">
+              Edit
+            </button>
+            <button type="button" onClick={() => CompanyProfile.deleteProject(id)}>
+              Delete
+            </button>
           </div>
+
+          <hr />
+
           <p className="description">{description}</p>
         </div>
       </Fragment>

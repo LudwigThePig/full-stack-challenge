@@ -54,6 +54,15 @@ button, input[type="submit"] {
 button:hover, button:active, input[type=submit]:active, input[type=submit]:hover {
   background: $active;
 }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, $secondary, $primary, $secondary);
+}
+
+
 /*
  * __Modifiers__ *
 */

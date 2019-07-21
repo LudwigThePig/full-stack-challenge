@@ -9,6 +9,10 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def destroy
+    @company = Company.delete(params[:id])
+  end
+
   def new
     @company = Company.new
   end
