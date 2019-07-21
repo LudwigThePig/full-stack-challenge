@@ -6,7 +6,6 @@ one:
   city: MyString
   state: MyString
   description: MyString
-  founders_id: 1
 
 two:
   founded_date: 2019-07-19
@@ -14,4 +13,3 @@ two:
   city: MyString
   state: MyString
   description: MyString
-  founders_id: 1
