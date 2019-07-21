@@ -1,11 +1,11 @@
 //= require ./components/templates
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import Navbar from '../templates/Navbar';
 import {
   CompanyName, City, State, FoundedDate, Description,
 } from './formComponents/index';
 
-class NewCompanyForm extends React.Component {
+class NewCompanyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ class NewCompanyForm extends React.Component {
       name, city, state, founded_date, description,
     } = this.state;
     return (
-      <React.Fragment>
+      <Fragment>
         <Navbar />
         <form method="post" onSubmit={this.handleSubmit}>
           <h1>Add New Company</h1>
@@ -73,7 +73,7 @@ class NewCompanyForm extends React.Component {
             Save
           </button>
         </form>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

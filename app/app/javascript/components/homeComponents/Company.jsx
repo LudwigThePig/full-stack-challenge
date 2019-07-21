@@ -1,11 +1,12 @@
 import React from 'react';
 import CompanyType from '../../types/company';
+import { formatYMD } from '../../helpers/date';
 
 const Company = ({
   id, founded_date, name, city, state, description,
 }) => {
-  const date = new Date(founded_date);
-  const dateString = `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
+  const date = formatYMD(founded_date);
+
   return (
     <li>
       <div className="row">
@@ -20,7 +21,7 @@ const Company = ({
 
       <p>{ description }</p>
       <span>
-        {`Founded ${dateString}`}
+        {`Founded ${date}`}
       </span>
     </li>
   );
