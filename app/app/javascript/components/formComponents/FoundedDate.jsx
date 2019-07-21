@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FoundedDate = ({ date, handler }) => (
+const FoundedDate = ({ founded_date, handler }) => (
   <label className="date-input" htmlFor="founded_date">
   Founded Date:
     <br />
@@ -9,7 +9,7 @@ const FoundedDate = ({ date, handler }) => (
       type="date"
       name="founded_date"
       placeholder="1996-12-25"
-      value={date}
+      value={founded_date}
       onChange={handler}
     />
   </label>
@@ -18,6 +18,6 @@ const FoundedDate = ({ date, handler }) => (
 export default FoundedDate;
 
 FoundedDate.propTypes = {
-  date: PropTypes.string.isRequired,
+  founded_date: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
 };

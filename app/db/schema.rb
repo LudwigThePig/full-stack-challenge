@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_203945) do
+ActiveRecord::Schema.define(version: 2019_07_21_174239) do
 
   create_table "companies", force: :cascade do |t|
     t.date "founded_date"
-    t.string "name", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "description", null: false
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "description"
     t.integer "founders_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "founders", force: :cascade do |t|
+    t.string "name"
+    t.integer "company_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

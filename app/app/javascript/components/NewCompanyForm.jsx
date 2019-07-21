@@ -1,11 +1,11 @@
 //= require ./components/templates
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import Navbar from '../templates/Navbar';
 import {
   CompanyName, City, State, FoundedDate, Description,
 } from './formComponents/index';
 
-class NewCompanyForm extends React.Component {
+class NewCompanyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,15 +37,13 @@ class NewCompanyForm extends React.Component {
 
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
+      redirect: 'follow',
       body: JSON.stringify(formData),
     };
 
     fetch('/companies', options)
-      .then(res => res.text())
-      .then(console.log)
+      .then((res) => { window.location = res.url; })
       .catch(console.error);
   }
 
@@ -54,9 +52,9 @@ class NewCompanyForm extends React.Component {
       name, city, state, founded_date, description,
     } = this.state;
     return (
-      <React.Fragment>
+      <Fragment>
         <Navbar />
-        <form method="post" onSubmit={this.handleSubmit}>
+        <form method="post" action="/companies" onSubmit={this.handleSubmit}>
           <h1>Add New Company</h1>
           <div className="row">
             <CompanyName companyName={name} handler={this.handleInputChange} />
@@ -73,7 +71,7 @@ class NewCompanyForm extends React.Component {
             Save
           </button>
         </form>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

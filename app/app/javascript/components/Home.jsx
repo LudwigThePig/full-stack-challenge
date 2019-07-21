@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import CompanyType from '../types/company';
 import Company from './homeComponents/Company';
 import Navbar from '../templates/Navbar';
@@ -17,13 +17,13 @@ class Home extends Component {
   render() {
     const { companies } = this.state;
     return (
-      <React.Fragment>
+      <Fragment>
         <Navbar />
         <ul>
           {companies.map(company => <Company key={company.id} {...company} />)}
           <button type="button" onClick={() => { window.location = '/companies/new'; }}>Add Company</button>
         </ul>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

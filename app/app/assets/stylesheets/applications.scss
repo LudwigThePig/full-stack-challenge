@@ -51,9 +51,23 @@ button, input[type="submit"] {
   cursor: pointer;
   box-shadow: .5rem .5rem 0px 0px #000;
 }
+
 button:hover, button:active, input[type=submit]:active, input[type=submit]:hover {
   background: $active;
 }
+
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid #33e1ed;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, $secondary, $primary, $secondary);
+}
+
+
 /*
  * __Modifiers__ *
 */
@@ -66,6 +80,14 @@ button:hover, button:active, input[type=submit]:active, input[type=submit]:hover
   align-items: flex-end;
 }
 
+.hidden {
+  display: none;
+}
+
+.right-bar {
+  padding-right: 0.6em;
+  border-right: 1px solid $primary;
+}
 
 /*
  * __Template Styles__ *

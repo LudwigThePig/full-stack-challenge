@@ -1,0 +1,54 @@
+$primary: #292939;
+$secondary: #fff;
+$active: #ed6767;
+$alt: #793f5c;
+
+.company-profile {
+  background: $secondary;
+  margin: 3rem 4rem;
+  padding: 2rem;
+  h1 { 
+    text-align: center; 
+    font-size: 2.8em;
+  }
+  .row p {
+    font-size: 1.2em;
+    margin: 0;
+  }
+}
+
+.modal {
+  position: absolute;
+  border: 2px solid $alt;
+  border-radius: 5px;
+  background: $secondary;
+  display: block;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50vw;
+  height: 70vh;
+  text-align: center;
+  form textarea{
+    height: auto;
+  }
+}
+
+.founders-container {
+  display: block;
+  margin: 3em 0;
+  border: 1px solid $primary; 
+  padding: 2em 0;
+  h2 {
+    background: $secondary;
+    width: 5em;
+    text-align:center;
+    margin: -15px 0 0 10px;    
+  }
+  height: auto;
+  .founders-list { 
+    width: 70%; 
+  }
+}
