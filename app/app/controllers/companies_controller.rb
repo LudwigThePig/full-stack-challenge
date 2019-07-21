@@ -24,6 +24,7 @@ class CompaniesController < ApplicationController
     if @company.update_attributes(company_params)
       head 200
     else 
+      head 400
       print 'bad request'
     end
   end
