@@ -7,6 +7,7 @@ class Navbar extends React.Component {
         <h1>CompanyDirectory</h1>
         <nav>
           <a href="/">Home</a>
+          <a href="/">Add Company</a>
         </nav>
       </div>
     );

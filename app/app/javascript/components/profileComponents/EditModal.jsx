@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   CompanyName, City, State, FoundedDate, Description,
 } from '../formComponents/index';
+import companyType from '../../types/company';
 
 const Modal = ({
   state, handler, save, exit,
@@ -13,7 +14,7 @@ const Modal = ({
     <CompanyName name={state.name} handler={handler} />
     <City city={state.city} handler={handler} />
     <State state={state.state} handler={handler} />
-    <FoundedDate date={state.date} handler={handler} />
+    <FoundedDate date={state.founded_date} handler={handler} />
     <Description description={state.description} handler={handler} />
 
     <div className="row">
@@ -24,3 +25,10 @@ const Modal = ({
 );
 
 export default Modal;
+
+Modal.propTypes = {
+  state: { ...companyType }.isRequired,
+  handler: PropTypes.func.isRequired,
+  save: PropTypes.func.isRequired,
+  exit: PropTypes.func.isRequired,
+};

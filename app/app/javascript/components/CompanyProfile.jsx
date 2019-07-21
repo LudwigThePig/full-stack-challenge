@@ -65,6 +65,7 @@ class CompanyProfile extends Component {
           state={this.state}
           save={() => {}}
           exit={this.toggleModal}
+          handler={this.handleInputChange}
         />
 
         <div className="company-profile">
