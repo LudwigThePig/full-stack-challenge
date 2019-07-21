@@ -40,12 +40,12 @@ class NewCompanyForm extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
+      redirect: 'follow',
       body: JSON.stringify(formData),
     };
 
     fetch('/companies', options)
-      .then(res => res.text())
-      .then(console.log)
+      .then((res) => { window.location = res.url; })
       .catch(console.error);
   }
 
@@ -56,7 +56,7 @@ class NewCompanyForm extends Component {
     return (
       <Fragment>
         <Navbar />
-        <form method="post" onSubmit={this.handleSubmit}>
+        <form method="post" action="/companies" onSubmit={this.handleSubmit}>
           <h1>Add New Company</h1>
           <div className="row">
             <CompanyName companyName={name} handler={this.handleInputChange} />

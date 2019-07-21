@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     respond_to do |format|
       if @company.save
-        format.html {redirect_to '/', notice: 'Company added!'}
+        format.html { redirect_to(@company) }
         format.json {render json: Company.all}
       else
         format.html {render :new}
