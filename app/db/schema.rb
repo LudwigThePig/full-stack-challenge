@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_174239) do
+ActiveRecord::Schema.define(version: 2019_07_21_180906) do
 
   create_table "companies", force: :cascade do |t|
     t.date "founded_date"
@@ -18,17 +18,17 @@ ActiveRecord::Schema.define(version: 2019_07_21_174239) do
     t.string "city"
     t.string "state"
     t.string "description"
-    t.integer "founders_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "founders", force: :cascade do |t|
-    t.string "name"
-    t.integer "company_id"
+    t.string "founder"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_founders_on_company_id"
   end
 
 end

@@ -6,13 +6,30 @@ import { formatYMD } from '../helpers/date';
 import Modal from './profileComponents/EditModal';
 import Founders from './profileComponents/Founders';
 
+
+/** A Note On This Class
+ *
+ *    If you notice, there are two very simllar forms in
+ * this class that were constructed with different styles.
+ *    First, the EditForm was constructed with handlers and state
+ * that is controlled by this class.
+ *    Second, the FounderForm's state and handler are controlled with
+ * hooks in a child class. This is how I should have built out
+ * the edit form (happy to explain why).I would refactor that now
+ * but my time is better spent learning Ruby and Rails!
+ *
+ * Cheers, Morgan.
+ *
+ */
+
+
 class CompanyProfile extends Component {
   static deleteProject(id) {
     const options = { method: 'DELETE' };
 
     return fetch(`/companies/${id}`, options)
       .then(res => res.text())
-      .then((data) => { window.location = '/'; })
+      .then(() => { window.location = '/'; })
       .catch(console.error);
   }
 
@@ -22,7 +39,7 @@ class CompanyProfile extends Component {
 
     /*        __Shape of `company` Object__
     id, founded_date, name, city, state, description  */
-    const { company } = this.props;
+    const { company, founders } = this.props;
 
     this.state = {
       ...company,
@@ -30,14 +47,21 @@ class CompanyProfile extends Component {
       formData: {
         ...company,
       },
-      founders: [],
+      founders,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSave = this.handleFormSave.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.addFounder = this.addFounder.bind(this);
   }
 
+  addFounder(newFounder) {
+    const { founders } = this.state;
+    this.setState({
+      founders: [...founders, newFounder],
+    });
+  }
 
   handleInputChange(e) {
     const { name, value } = e.target;
@@ -103,17 +127,20 @@ class CompanyProfile extends Component {
             <p>{formatedDate}</p>
             <p className="right-bar">{`${city}, ${state}`}</p>
             <button type="button" onClick={() => { this.setState({ modal: !modal }); }}>
-              Edit
+            Edit
             </button>
             <button type="button" onClick={() => CompanyProfile.deleteProject(id)}>
               Delete
             </button>
           </div>
-
           <hr />
-
           <p className="description">{description}</p>
-          <Founders founders={founders} />
+
+          <Founders
+            founders={founders}
+            addFounder={this.addFounder}
+            id={id}
+          />
         </div>
       </Fragment>
     );
