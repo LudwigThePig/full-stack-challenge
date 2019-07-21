@@ -37,9 +37,7 @@ class NewCompanyForm extends Component {
 
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       redirect: 'follow',
       body: JSON.stringify(formData),
     };

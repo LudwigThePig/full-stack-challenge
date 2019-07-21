@@ -17,6 +17,15 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def update
+    @company = Company.find(params[:id])
+    if @company.update_attributes(company_params)
+      head 200
+    else 
+      print 'bad request'
+    end
+  end
+
   def create
     @company = Company.new(company_params)
     respond_to do |format|
@@ -29,9 +38,8 @@ class CompaniesController < ApplicationController
     end
   end
 
-
-  def company_params
-    params.require(:company).permit(:name, :google, :founded_date, :city, :state, :description, :company)
-  end
-
+  private
+    def company_params
+      params.require(:company).permit(:name, :google, :founded_date, :city, :state, :description, :company)
+    end
 end

@@ -8,15 +8,14 @@ import Modal from './profileComponents/EditModal';
 
 class CompanyProfile extends Component {
   static deleteProject(id) {
-    const options = {
-      method: 'DELETE',
-    };
+    const options = { method: 'DELETE' };
 
     return fetch(`/companies/${id}`, options)
       .then(res => res.text())
-      .then(console.log)
+      .then((data) => { window.location = '/'; })
       .catch(console.error);
   }
+
 
   constructor(props) {
     super(props);
@@ -38,6 +37,7 @@ class CompanyProfile extends Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
+
   handleInputChange(e) {
     const { name, value } = e.target;
     const { formData } = this.state;
@@ -47,27 +47,26 @@ class CompanyProfile extends Component {
     });
   }
 
+
   handleFormSave(e) {
     e.preventDefault();
     const { formData } = this.state;
-
-    // `changedFields` filters out all of the unchanged form fields
     const changedFields = Object.keys(formData)
       .filter(key => this.state[key] !== formData[key])
       .reduce((acc, key) => { acc[key] = formData[key]; return acc; }, {});
 
     const options = {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(changedFields),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ company: changedFields }),
     };
+
     return fetch(`/companies/${formData.id}`, options)
-      .then(data => data.text())
+      .then(data => console.log(data))
       .then(console.log)
       .catcch(console.error);
   }
+
 
   toggleModal() {
     const { modal } = this.state;
@@ -75,6 +74,7 @@ class CompanyProfile extends Component {
       modal: !modal,
     });
   }
+
 
   render() {
     const {
