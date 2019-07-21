@@ -21,7 +21,7 @@ class Home extends Component {
         <Navbar />
         <ul>
           {companies.map(company => <Company key={company.id} {...company} />)}
-          <button type="button" onClick={() => { window.location = '/companies/new'; }}>Add Companyy</button>
+          <button type="button" onClick={() => { window.location = '/companies/new'; }}>Add Company</button>
         </ul>
       </React.Fragment>
     );

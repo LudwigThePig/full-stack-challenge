@@ -9,10 +9,10 @@ class NewCompanyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      companyName: '',
+      name: '',
       city: '',
       state: 'CO',
-      date: '',
+      founded_date: '',
       description: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -29,34 +29,49 @@ class NewCompanyForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = this.state;
-    formData.date = new Date(formData.date);
-    console.log(formData);
+    if (formData.founded_date.length === 0) {
+      delete formData.founded_date;
+    } else {
+      formData.founded_date = new Date(formData.founded_date);
+    }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    };
+
+    fetch('/companies', options)
+      .then(res => res.text())
+      .then(console.log)
+      .catch(console.error);
   }
 
   render() {
     const {
-      companyName, city, state, date, description,
+      name, city, state, founded_date, description,
     } = this.state;
     return (
       <React.Fragment>
         <Navbar />
-        <form>
+        <form method="post" onSubmit={this.handleSubmit}>
           <h1>Add New Company</h1>
           <div className="row">
-            <CompanyName companyName={companyName} handler={this.handleInputChange} />
+            <CompanyName companyName={name} handler={this.handleInputChange} />
           </div>
+
           <div className="row">
             <City city={city} handler={this.handleInputChange} />
             <State state={state} handler={this.handleInputChange} />
-            <FoundedDate date={date} handler={this.handleInputChange} />
+            <FoundedDate date={founded_date} handler={this.handleInputChange} />
           </div>
           <Description description={description} handler={this.handleInputChange} />
 
-          <input
-            type="submit"
-            value="Save"
-            onSubmit={this.handleSubmit}
-          />
+          <button type="submit" onSubmit={this.handleSubmit}>
+            Save
+          </button>
         </form>
       </React.Fragment>
     );

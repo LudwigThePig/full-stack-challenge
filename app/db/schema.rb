@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 2019_07_19_203945) do
 
   create_table "companies", force: :cascade do |t|
     t.date "founded_date"
-    t.string "name"
-    t.string "city"
-    t.string "state"
-    t.string "description"
+    t.string "name", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "description", null: false
     t.integer "founders_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

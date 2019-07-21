@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CompanyName = ({ companyName, handler }) => (
+const CompanyName = ({ name, handler }) => (
   <label className="company-name-input required" htmlFor="companyName">
   Company Name:
     <br />
     <input
       type="text"
-      name="companyName"
-      value={companyName}
+      name="name"
+      value={name}
       onChange={handler}
       required
     />
@@ -18,6 +18,6 @@ const CompanyName = ({ companyName, handler }) => (
 export default CompanyName;
 
 CompanyName.propTypes = {
-  companyName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
 };

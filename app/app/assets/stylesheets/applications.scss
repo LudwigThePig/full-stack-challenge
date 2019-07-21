@@ -46,9 +46,14 @@ button, input[type="submit"] {
   background: $secondary;
   border: 0;
   padding: 1rem 2rem;
+  background: $alt;
+  color: $secondary;
+  cursor: pointer;
   box-shadow: .5rem .5rem 0px 0px #000;
 }
-
+button:hover, button:active, input[type=submit]:active, input[type=submit]:hover {
+  background: $active;
+}
 /*
  * __Modifiers__ *
 */

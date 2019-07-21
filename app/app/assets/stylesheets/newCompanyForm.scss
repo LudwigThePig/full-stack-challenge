@@ -23,12 +23,12 @@ form {
   select {
     width: 100%;
   }
-  input[type=submit] {
-    width: inherit;
+
+  button {
+    display: block;
     margin: auto;
-    background: $active;
-    color: $secondary;
-  }
+  } 
+
   label {
     width: 100%;
     display: block;
