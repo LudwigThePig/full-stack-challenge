@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import Navbar from '../templates/Navbar';
 import companyType from '../types/company';
 import { formatYMD } from '../helpers/date';
 import Modal from './profileComponents/EditModal';
+import Founders from './profileComponents/Founders';
 
 class CompanyProfile extends Component {
   static deleteProject(id) {
@@ -26,10 +26,11 @@ class CompanyProfile extends Component {
 
     this.state = {
       ...company,
-      modal: true,
+      modal: false,
       formData: {
         ...company,
       },
+      founders: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -62,9 +63,11 @@ class CompanyProfile extends Component {
     };
 
     return fetch(`/companies/${formData.id}`, options)
-      .then(data => console.log(data))
-      .then(console.log)
-      .catcch(console.error);
+      .then(() => {
+        this.toggleModal();
+        this.setState({ ...formData });
+      })
+      .catch(console.error);
   }
 
 
@@ -75,10 +78,9 @@ class CompanyProfile extends Component {
     });
   }
 
-
   render() {
     const {
-      id, founded_date, name, city, state, description, modal, formData,
+      id, founded_date, name, city, state, description, modal, formData, founders,
     } = this.state;
 
     const formatedDate = founded_date !== null ? formatYMD(founded_date) : '';
@@ -99,7 +101,7 @@ class CompanyProfile extends Component {
 
           <div className="row">
             <p>{formatedDate}</p>
-            <p>{`${city}, ${state}`}</p>
+            <p className="right-bar">{`${city}, ${state}`}</p>
             <button type="button" onClick={() => { this.setState({ modal: !modal }); }}>
               Edit
             </button>
@@ -111,6 +113,7 @@ class CompanyProfile extends Component {
           <hr />
 
           <p className="description">{description}</p>
+          <Founders founders={founders} />
         </div>
       </Fragment>
     );

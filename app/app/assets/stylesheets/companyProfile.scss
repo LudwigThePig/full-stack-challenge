@@ -15,10 +15,6 @@ $alt: #793f5c;
     font-size: 1.2em;
     margin: 0;
   }
-  .row p:nth-child(2) {
-    padding-right: 0.6em;
-    border-right: 1px solid $primary;
-  }
 }
 
 .modal {
@@ -37,5 +33,22 @@ $alt: #793f5c;
   text-align: center;
   form textarea{
     height: auto;
+  }
+}
+
+.founders-container {
+  display: block;
+  margin: 3em 0;
+  border: 1px solid $primary; 
+  padding: 2em 0;
+  h2 {
+    background: $secondary;
+    width: 5em;
+    text-align:center;
+    margin: -15px 0 0 10px;    
+  }
+  height: auto;
+  .founders-list { 
+    width: 70%; 
   }
 }
