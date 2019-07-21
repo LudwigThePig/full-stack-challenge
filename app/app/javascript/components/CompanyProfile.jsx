@@ -32,6 +32,16 @@ class CompanyProfile extends Component {
       description,
       modal: true,
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  handleInputChange(e) {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   toggleModal() {
