@@ -96,7 +96,7 @@ If you move onto the next stage of the interview process we will have you come i
 # Company Directory
 
 ## Demo
-[Click here to see a demo!](#demo)
+[Click here to see a demo!](https://morning-harbor-19006.herokuapp.com/)
 
 ## Getting Started
   Run the following commands in your terminal
