@@ -1,3 +1,6 @@
+<details>
+  <summary><h1>Click to see project specs!</h1></summary>
+
 # Techstars Engineering: Fun Front to Back
 
 Welcome to the Techstars Engineering Full Stack code Challenge. We work on diverse project and value team members who can do it all from CSS to DevOps and everything inbetween.  We love to code and are passionate about doing it well.
@@ -86,3 +89,26 @@ Create a test suite for your application, writing unit and or functional tests t
 If you move onto the next stage of the interview process we will have you come in and pair program with our engineers and build on top of your code base.  Example features we might implement together would be to add category tags, add a search component or add images to Companies and Founders using a third party hosting service.
 
 
+</details>
+
+
+
+# Company Directory
+
+## Demo
+[Click here to see a demo!](#demo)
+
+## Getting Started
+  Run the following commands in your terminal
+    ```
+    git clone https://github.com/LudwigThePig/full-stack-challenge.git # or clone your own fork
+    cd full-stack-challenge/app
+    bundle
+    rake db:migrate
+    rails s
+    ```
+
+## Testing
+  This application comes with a suite of tests that cover the models, controllers, and views.
+    - To test the models and controllers, run `rails test`.
+    - To test the views, run `yarn test`.

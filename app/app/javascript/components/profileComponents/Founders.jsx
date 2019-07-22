@@ -18,7 +18,7 @@ const Founders = ({ founders, id, addFounder }) => {
         />
 
         <div className="founders-list row">
-          { founders.map(({ founder, title }) => <p>{`${founder} : ${title}`}</p>) }
+          { founders.map(({ founder, title }, i) => <p key={`founder-${i}`}>{`${founder} : ${title}`}</p>) }
         </div>
 
         <button
@@ -35,12 +35,13 @@ const Founders = ({ founders, id, addFounder }) => {
 export default Founders;
 
 const founderType = {
+  company_id: PropTypes.number,
   founder: PropTypes.string,
   title: PropTypes.string,
 };
 
 Founders.propTypes = {
-  founders: PropTypes.arrayOf(founderType).isRequired,
+  founders: PropTypes.array,
   id: PropTypes.number.isRequired,
   addFounder: PropTypes.func.isRequired,
 };

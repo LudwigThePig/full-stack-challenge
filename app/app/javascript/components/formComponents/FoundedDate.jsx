@@ -18,6 +18,6 @@ const FoundedDate = ({ founded_date, handler }) => (
 export default FoundedDate;
 
 FoundedDate.propTypes = {
-  founded_date: PropTypes.string.isRequired,
+  founded_date: PropTypes.string,
   handler: PropTypes.func.isRequired,
 };

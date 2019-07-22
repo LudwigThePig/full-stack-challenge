@@ -31,5 +31,5 @@ class Home extends Component {
 export default Home;
 
 Home.propTypes = {
-  companies: CompanyType.isRequired,
+  // companies: CompanyType.isRequired,
 };

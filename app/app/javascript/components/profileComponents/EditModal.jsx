@@ -29,7 +29,7 @@ const Modal = ({
 export default Modal;
 
 Modal.propTypes = {
-  form: { ...companyType }.isRequired,
+  form: PropTypes.object,
   modal: PropTypes.bool.isRequired,
   handler: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
