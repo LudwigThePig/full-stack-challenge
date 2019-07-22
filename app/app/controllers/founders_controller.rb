@@ -20,6 +20,10 @@ class FoundersController < ApplicationController
     end
   end
 
+  def destroy
+    @found = Founder.delete(params[:id])
+  end
+
   private
     def founder_params
       puts params

@@ -106,7 +106,6 @@ class CompanyProfile extends Component {
     const {
       id, founded_date, name, city, state, description, modal, formData, founders,
     } = this.state;
-
     const formatedDate = founded_date !== null ? formatYMD(founded_date) : '';
 
     return (
