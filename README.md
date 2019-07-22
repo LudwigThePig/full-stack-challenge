@@ -112,3 +112,23 @@ If you move onto the next stage of the interview process we will have you come i
   This application comes with a suite of tests that cover the models, controllers, and views.
     - To test the models and controllers, run `rails test`.
     - To test the views, run `yarn test`.
+
+## Design Choices
+
+  Despite not having any Rails experience, I took the hint and built out the application with Rails! The data flow is very much in line with what Rails suggests. Although scaffolds look like powerful tools, I stayed away from them. I wanted to learn how to build out my own controllers, tests, and custom scopes from scratch. 
+  
+  I created two controllers and models. One for the companies and one for the Founders. At present, companies have a one to many relationship with founders. In the future, if our founders wanted to go off and start a new company, one would just have to create a join table and the requisite model to handle a many to many relationship
+
+  The views were built out with React. There are three root components for the three erb templates, `home`, `new`, and `show`. Each root component shares a navbar component.
+
+  The Home component/view renders a list of the companies. There is a 'add company' button at the bottom, as well as a link in the navbar to the new company page.
+
+  The new view, or NewCompanyForm component, renders a form that posts to the Ruby controller, which updates the Model.
+
+  The show view, or CompanyProfile, has a lot of dynamic features. First, a user can click on the 'edit' button to have a modal appear. This modal contains a form that allows the user to edit the company's details. There is a second modal that appears when the user clicks the 'Add Founder' button. This also displays a form. This component makes full use of React's SPA powers. Users never have to leave the page to make changes and see those changes.
+
+  Testing, while always at the front of my mind, took a backseat in the development process. I did not know enough about Rails to write meaningful tests from the start. I spent a good deal of time learning about MiniTest and implemented my tests after development but it would have been nice to know enough to use TDD.
+
+  All in all, this was a lot of fun! I understand the power of Rails and look forward to developing with it in the future
+
+  - Morgan
