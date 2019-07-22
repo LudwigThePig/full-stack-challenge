@@ -14,20 +14,20 @@ ActiveRecord::Schema.define(version: 2019_07_21_180906) do
 
   create_table "companies", force: :cascade do |t|
     t.date "founded_date"
-    t.string "name"
-    t.string "city"
-    t.string "state"
-    t.string "description"
+    t.string "name", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "founders", force: :cascade do |t|
-    t.string "founder"
-    t.string "title"
+    t.string "founder", null: false
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "company_id"
+    t.integer "company_id", null: false
     t.index ["company_id"], name: "index_founders_on_company_id"
   end
 
