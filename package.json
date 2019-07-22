@@ -1,0 +1,42 @@
+{
+  "name": "app",
+  "private": true,
+  "eslint": "eslint",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@rails/webpacker": "^4.0.7",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react_ujs": "^2.5.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^24.8.0",
+    "jest-enzyme": "^7.0.2",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "roots": [
+      "test/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript"
+    ],
+    "setupTestFrameworkScriptFile": "./test/javascript/enzymeConfig.js"
+  }
+}

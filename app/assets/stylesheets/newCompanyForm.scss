@@ -1,0 +1,39 @@
+$primary: #292939;
+$secondary: #fff;
+$active: #ed6767;
+$alt: #793f5c;
+
+
+form {
+  background: $secondary;
+  margin: 3rem 4rem;
+  padding: 2rem;
+  textarea {
+    height: 20em;
+    width: 100%;
+  }
+  input {
+    box-sizing: border-box;
+
+    width: 100%;
+    display: block;
+    padding: 0;
+  }
+  select {
+    width: 100%;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  } 
+
+  label {
+    width: 100%;
+    display: block;
+    margin: 0 1em;
+  }
+  .required label:after {
+    content:" *"; 
+  }
+}
