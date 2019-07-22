@@ -6,7 +6,7 @@ ruby '2.6.3'
 #ADDED GEMS
 gem 'react-rails'
 gem 'webpacker'
-gem 'eslint-rails'
+# gem 'eslint-rails'
 gem 'pg'
 
 
